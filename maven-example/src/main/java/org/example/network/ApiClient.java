@@ -71,16 +71,17 @@ public class ApiClient {
     }
 
     switch (option) {
-      case RETRY_WITH_NEW_ACCOUNT -> {
+      case RETRY_WITH_NEW_ACCOUNT:
         preferences.remove(PREF_SECRET_KEY);
         preferences.sync();
         preferences.flush();
         setUp(sc);
-      }
-      case RETRY -> setUp(sc);
-      case COMPLETE -> {
+        break;
+      case RETRY:
+        setUp(sc);
+        break;
+      case COMPLETE:
         return;
-      }
     }
   }
 

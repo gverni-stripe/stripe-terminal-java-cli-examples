@@ -8,12 +8,10 @@ import org.junit.jupiter.api.*;
 @Timeout(60)
 public class StripeTerminalCollectInputsTests extends StripeTerminalTests {
   private static final String VERY_LONG_STRING =
-      """
-          This is a very long string that which we want to use for testing forms inputs string threshold to ensure that
-          it throws an error for string that are longer than the set max threshold for forms. We have set a max because
-          the reader has limited real estate so we need to be efficient with how we use the screen space. This surely
-          exceeds the maximum, and can be reused for tests seeking to check that max. Thanks!
-          """;
+      "This is a very long string that which we want to use for testing forms inputs string threshold to ensure that\n" +
+      "it throws an error for string that are longer than the set max threshold for forms. We have set a max because\n" +
+      "the reader has limited real estate so we need to be efficient with how we use the screen space. This surely\n" +
+      "exceeds the maximum, and can be reused for tests seeking to check that max. Thanks!\n";
 
 
   @Test

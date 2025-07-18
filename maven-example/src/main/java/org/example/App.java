@@ -46,25 +46,39 @@ public class App {
     do {
       selection = getMenuItem(sc);
       switch (selection) {
-        case 1 -> terminal.takePaymentClientSideCreate(apiClient.getCurrency());
-        case 2 -> terminal.takePaymentServerSideCreate(getClientSecret(sc));
-        case 3 -> terminal.saveCardClientSideCreate();
-        case 4 -> terminal.saveCardServerSideCreate(getClientSecret(sc));
-        case 5 -> terminal.displayCart(apiClient.getCurrency());
-        case 6 -> terminal.clearReaderDisplay();
-        case 7 -> {
+        case 1:
+          terminal.takePaymentClientSideCreate(apiClient.getCurrency());
+          break;
+        case 2:
+          terminal.takePaymentServerSideCreate(getClientSecret(sc));
+          break;
+        case 3:
+          terminal.saveCardClientSideCreate();
+          break;
+        case 4:
+          terminal.saveCardServerSideCreate(getClientSecret(sc));
+          break;
+        case 5:
+          terminal.displayCart(apiClient.getCurrency());
+          break;
+        case 6:
+          terminal.clearReaderDisplay();
+          break;
+        case 7:
           System.out.println("Enter chargeId for payment you want to refund: ");
           String chargeId = sc.nextLine();
           System.out.println("Enter amount to refund: ");
           long amount = sc.nextLong();
           terminal.refund(chargeId, apiClient.getCurrency(), amount);
-        }
-        case 8 -> terminal.printOfflineStatus();
-        default -> {
+          break;
+        case 8:
+          terminal.printOfflineStatus();
+          break;
+        default:
           System.out.println("Disconnecting reader");
           terminal.disconnectReader();
           System.out.println("Successfully disconnected");
-        }
+          break;
       }
     } while (selection >= 1 && selection <= 8);
     sc.close();

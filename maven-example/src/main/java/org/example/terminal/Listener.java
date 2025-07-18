@@ -77,24 +77,22 @@ public class Listener implements TerminalListener, OfflineListener, TerminalStat
     testPaymentForwardingWaiters(paymentIntent, e);
     if (e != null) {
       System.err.printf(
-      """
-      =========================================================================================================================
-      Encountered error while forwarding
-      Payment Intent : %s
-      Offline Details: %s
-      Error code: %s
-      =========================================================================================================================
-      """, paymentIntent, paymentIntent.getOfflineDetails(), e.getErrorCode());
+      "=========================================================================================================================\n" +
+      "Encountered error while forwarding\n" +
+      "Payment Intent : %s\n" +
+      "Offline Details: %s\n" +
+      "Error code: %s\n" +
+      "=========================================================================================================================\n", 
+      paymentIntent, paymentIntent.getOfflineDetails(), e.getErrorCode());
       e.printStackTrace();
     } else {
       System.out.printf(
-      """
-      ==========================================================================================================================
-      Successful Forward!
-      Payment Intent: %s
-      Offline Details: %s
-      ==========================================================================================================================
-      """, paymentIntent, paymentIntent.getOfflineDetails());
+      "==========================================================================================================================\n" +
+      "Successful Forward!\n" +
+      "Payment Intent: %s\n" +
+      "Offline Details: %s\n" +
+      "==========================================================================================================================\n", 
+      paymentIntent, paymentIntent.getOfflineDetails());
     }
   }
 

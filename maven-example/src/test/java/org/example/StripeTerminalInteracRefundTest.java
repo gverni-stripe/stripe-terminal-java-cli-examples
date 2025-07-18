@@ -49,11 +49,10 @@ public class StripeTerminalInteracRefundTest extends StripeTerminalTests {
     Assertions.assertEquals(refundParameters.getCurrency(), refund.getCurrency());
     Assertions.assertEquals(metaData, refund.getMetadata());
     System.out.printf(
-    """
-    ========================================================================================================================
-    Refunding $1.00 of %s => confirmed Refund = %s
-    ========================================================================================================================
-    """, refundID, refund);
+    "========================================================================================================================\n" +
+    "Refunding $1.00 of %s => confirmed Refund = %s\n" +
+    "========================================================================================================================\n", 
+    refundID, refund);
   }
 
   @MethodSource("testParameters")

@@ -27,7 +27,7 @@ public class StripeTerminalCollectPaymentsTest extends StripeTerminalTests {
   @EnumSource(OfflineBehavior.class)
   void testHappyPathOnline(@NotNull OfflineBehavior offlineBehavior) {
     List<PaymentMethodType> paymentMethodTypes =
-        new ArrayList<>() {
+        new ArrayList<PaymentMethodType>() {
           {
             add(PaymentMethodType.CARD_PRESENT);
             add(PaymentMethodType.INTERAC_PRESENT);
@@ -58,21 +58,20 @@ public class StripeTerminalCollectPaymentsTest extends StripeTerminalTests {
       Assertions.assertFalse(confirmedPI.getCharges().isEmpty());
     }
     System.out.printf(
-            """
-            ========================================================================================================================
-            Payments tests
-            offline behaviour => %s
-            confirmed Payment Intent => %s
-            offline Details => %s
-            charge => %s
-            ========================================================================================================================
-            """, offlineBehavior, confirmedPI, confirmedPI.getOfflineDetails(), confirmedPI.getCharges());
+            "========================================================================================================================\n" +
+            "Payments tests\n" +
+            "offline behaviour => %s\n" +
+            "confirmed Payment Intent => %s\n" +
+            "offline Details => %s\n" +
+            "charge => %s\n" +
+            "========================================================================================================================\n", 
+            offlineBehavior, confirmedPI, confirmedPI.getOfflineDetails(), confirmedPI.getCharges());
   }
 
   @Test
   void testCustomerCancellation() {
     List<PaymentMethodType> paymentMethodTypes =
-        new ArrayList<>() {
+        new ArrayList<PaymentMethodType>() {
           {
             add(PaymentMethodType.CARD_PRESENT);
             add(PaymentMethodType.INTERAC_PRESENT);
@@ -106,7 +105,7 @@ public class StripeTerminalCollectPaymentsTest extends StripeTerminalTests {
   void testProgrammaticCancellation() throws InterruptedException {
     System.out.println("Started programmatic cancel tests");
     List<PaymentMethodType> paymentMethodTypes =
-        new ArrayList<>() {
+        new ArrayList<PaymentMethodType>() {
           {
             add(PaymentMethodType.CARD_PRESENT);
             add(PaymentMethodType.INTERAC_PRESENT);
